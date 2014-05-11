@@ -1,0 +1,23 @@
+.btn {
+	height: 200px;
+	width: 200px;
+	border-radius : 100%;
+	color: #fff;
+	font-weight: bold;
+	font-size: 40px;
+	text-shadow: 0px -1px 0px rgba(0,0,0,0.5);
+	border: 1px solid;
+	border-radius: 100%;
+	-moz-border-radius: 100%;
+	-webkit-border-radius: 100%;
+}
+
+.btn-pong {
+	background-color: #C91826;
+	border-color: #B21522;
+}
+
+.btn-ping {
+	background-color: rgb(41, 202, 27);
+	border-color: rgb(7, 184, 21);
+}

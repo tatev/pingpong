@@ -2,14 +2,24 @@ doctype html
 html(ng-app='pingPongApp')
   head
     title Ping Pong
+    link(rel='stylesheet', href='/css/pingpong.css')
     script(src='/angular/angular.js')
     script(src='/socket.io/socket.io.js')
     script(src='/angular/socket.js')
     script(src='/js/app.js')
     script(src='/js/services.js')
     script(src='/js/controllers.js')
-  body(ng-controller='AppCtrl')
-    h1 Ping Pong default page
-    p The most amazing game.
-    button#pingpong(ng-show='btnVal', ng-click='btnClick()') {{btnVal}}
-    p(ng-hide='btnVal') Sorry, you are a bit late :(
+    script(src='/js/directives.js')
+  body(ng-controller='AppCtrl', style='text-align: center')
+    h1 Ping Pong
+    h2(ng-show='player') Welcome, {{ player }}!
+    button(ng-show='player && !finished', 
+          ng-disabled='state === "pong"', 
+          ng-class='(state === "ping") ? "btn-ping" : "btn-pong"', 
+          fast-click='btnClick()', 
+          change-position).btn {{ state }}
+    h2(ng-show='finished') {{ gameMsg }}
+    h2(ng-show='finished') {{ msg }}
+    button(ng-show='finished', ng-click='tryAgain()') Play
+    p(ng-repeat='elem in history') {{ elem }}
+    h2(ng-hide='player') Sorry, you are a bit late :(
